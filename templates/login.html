@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FeedForward Login</title>
+    <link href="static/css/login.css" rel="stylesheet">
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-header">
+            <img src="static/images/logo.png" alt="Logo">
+            <h1>Welcome Back</h1>
+            <p>Sign in to your account</p>
+        </div>
+        
+        <form class="login-form" method="POST" action="/">
+
+            <div>
+                <div class="form-group">
+                    <input type="email" id="email" placeholder=" " name="email">
+                    <label for="email">Email Address</label>
+                </div>
+                <p class="error">{{ email_error }}</p>
+            </div>
+            
+            <div>
+                <div class="form-group">
+                    <input type="password" id="password" placeholder=" " name="password">
+                    <label for="password">Password</label>
+                </div>
+                <p class="error">{{ pw_error }}</p>
+            </div>
+            
+            <button type="submit">Log In</button>
+        </form>
+        
+        <div class="forgot-password">
+            <a href="#">Forgot your password?</a><br>
+            <a href="signup">Don't have an account? Sign Up</a>
+        </div>
+    </div>
+</body>
+</html>

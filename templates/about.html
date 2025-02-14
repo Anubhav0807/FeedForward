@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="static/css/about.css" rel="stylesheet">
+</head>
+<body>  
+
+    <!-- Navbar -->
+<nav class="navbar">
+    <div class="logo">
+        <img src="static/images/logo.png" alt="Feed Forward Logo">
+        <span>Feed Forward</span>
+    </div>
+    <div class="nav-links">
+        <a href="/">Home</a>
+        <a href="/about">About</a>
+        <a href="/#contact">Contact</a>
+        {% if auth %}
+            <a href="#">Profile</a>
+        {% else %}
+            <a href="login">Login</a>
+        {% endif %}
+    </div>
+</nav>
+
+
+    <!-- Hero Section -->
+    <section class="hero-about">
+        <div class="hero-content">
+            <h1 class="hero-title">Our Mission</h1>
+            <p>Fighting food waste, feeding communities</p>
+        </div>
+    </section>
+
+    <!-- Story Section -->
+    <section class="story-section">
+        <div class="story-image">
+            <img src="static/images/kitchen.webp" alt="Community kitchen" style="width: 100%; height: 100%; object-fit: cover;">
+        </div>
+        <div class="story-content">
+            <h2>How Food Forward Began</h2>
+            <p>Food Forward was founded in 2018 with a mission to reduce food waste and bridge the gap between surplus food and those in need.</p>
+            <br>
+            <p>Starting as a small community effort, we have now rescued over **10 million meals**, working with restaurants, grocery stores, and local farms to ensure food is not wasted.</p>
+            <br>
+            <p>>Our efforts have expanded nationwide, partnering with shelters, food banks, and schools to provide access to nutritious meals.</p>
+        </div>
+    </section>
+
+    <!-- Values Section -->
+    <section class="values-section">
+        <h2>Our Core Values</h2>
+        <div class="values-grid">
+            <div class="value-card">
+                <i class="fas fa-hand-holding-heart feature-icon"></i>
+                <h3>Compassion</h3>
+                <p>We believe no one should go hungry while food goes to waste.</p>
+            </div>
+            <div class="value-card">
+                <i class="fas fa-recycle feature-icon"></i>
+                <h3>Sustainability</h3>
+                <p>Reducing food waste through innovative solutions.</p>
+            </div>
+            <div class="value-card">
+                <i class="fas fa-users feature-icon"></i>
+                <h3>Community</h3>
+                <p>Connecting donors and recipients for a hunger-free world.</p>
+            </div>
+            <div class="value-card">
+                <i class="fas fa-chart-line feature-icon"></i>
+                <h3>Impact</h3>
+                <p>Every meal rescued makes a difference in someone’s life.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline Section -->
+    <section class="timeline-section">
+        <h2>Our Journey</h2>
+        <div class="timeline">
+            <div class="timeline-item">
+                <h3>2018</h3>
+                <p>Food Forward was founded with a simple goal: reduce food waste.</p>
+            </div>
+            <div class="timeline-item">
+                <h3>2020</h3>
+                <p>Expanded to 10+ cities, rescuing 1 million meals.</p>
+            </div>
+            <div class="timeline-item">
+                <h3>2022</h3>
+                <p>Partnered with 500+ restaurants and farms nationwide.</p>
+            </div>
+            <div class="timeline-item">
+                <h3>2024</h3>
+                <p>Launched the Food Rescue App, making donations even easier.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team-section">
+        <h2 style="text-align: center;">Meet Our Team</h2>
+        <div class="team-grid">
+            <div class="team-member">
+                <img src="static/images/founder.webp" alt="Spencer Johnson" class="member-image">
+                <h3>Sumit Kumar</h3>
+                <p>Founder & CEO</p>
+            </div>
+            <div class="team-member">
+                <img src="static/images/founder.webp" alt="Michael Chen" class="member-image">
+                <h3>Anubhav Jha</h3>
+                <p>Operations</p>
+            </div>
+            <div class="team-member">
+                <img src="static/images/founder.webp" alt="Emma Rodriguez" class="member-image">
+                <h3>Yerav Aaron</h3>
+                <p>Community Outreach Lead</p>
+            </div>
+            <div class="team-member">
+                <img src="static/images/founder.webp" alt="Emma Rodriguez" class="member-image">
+                <h3>Adityaraj</h3>
+                <p>Manager</p>
+            </div>
+        </div>
+    </section>
+    <!-- Footer -->
+    <footer>
+        <div class="footer-grid" id="contact">
+            <div>
+                <h3>About Us</h3>
+                <p>Join us in rescuing food and feeding communities.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+            <div>
+                <h3>Quick Links</h3>
+                <p>Donate</p>
+                <p>Our Impact</p>
+                <p>Get Involved</p>
+            </div>
+            <div>
+                <h3>Contact</h3>
+                <p>VIT Chennai, <br>Vandalur-Kelambakkam road, 600127</p>
+                <a href="mailto:sumitkumar.patnaik2023@vitstudent.ac.in">
+                    sumitkumar.patnaik2023@vitstudent.ac.in
+                </a>
+                <p>+91 8109101249</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p style="text-align: center;">&copy; 2025 Feed Forward. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

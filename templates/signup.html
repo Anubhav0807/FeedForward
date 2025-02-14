@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feed Forward Signup</title>
+    <link href="static\css\signup.css" rel="stylesheet">
+</head>
+<body>
+    <div class="signup-container">
+        <div class="signup-header">
+            <img src="static/images/logo.png" alt="Feed Forward Logo">
+            <h1>Create Account</h1>
+            <p>Join our Feeding community</p>
+        </div>
+
+        <form class="signup-form" method="POST" action="/">
+
+            <div class="form-group">
+                <select name="service">
+                    <option value="provider">Food Provider</option>
+                    <option value="receiver">Food Receiver</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <input type="text" id="name" placeholder=" " name="username">
+                <label for="name">Caterer Name/Organisation Name</label>
+            </div>
+
+
+            <div class="form-group">
+                <input type="email" id="email" placeholder=" " name="email">
+                <label for="email">Email Address</label>
+            </div>
+            
+            <div class="form-group">
+                <input type="password" id="password" placeholder=" " name="password">
+                <label for="password">Password</label>
+            </div>
+
+            <div class="form-group">
+                <input type="password" id="confirm-password" placeholder=" ">
+                <label for="confirm-password">Confirm Password</label>
+            </div>
+            
+            <button type="submit">Sign Up</button>
+        </form>
+        
+        <div class="terms">
+            By signing up, you agree to our Terms of Service and Privacy Policy
+        </div>
+
+        <div class="login-link">
+            <a href="login">Already have an account? Log In</a>
+        </div>
+    </div>
+</body>
+</html>

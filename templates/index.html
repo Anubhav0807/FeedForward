@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feed Forward</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="static/css/style.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div style="display: flex; align-items: center;">
+            <img src="static/images/logo-light.png" alt="Connection error" height="50px">
+            <p>Feed Forward</p>
+        </div>
+        <div class="nav-links">
+            <a href="/">Home</a>
+            <a href="/about">About</a>
+            <a href="#contact">Contact</a>
+            {% if auth %}
+                <a href="#">Profile</a>
+            {% else %}
+                <a href="login">Login</a>
+            {% endif %}
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">From Surplus To Service</h1>
+            <p>Extra Food Is Not A Waste, It Can Fill Few Empty Stomachs.</p>
+            
+            {% if not auth %}
+                <a href="/login" style="text-decoration: none; color: white;">
+                    <button class="submit-btn" style="margin-top: 20px;">Order Now</button>
+                </a>
+                <a href="/login" style="text-decoration: none; color: white;">
+                    <button class="submit-btn" style="margin-top: 20px;">Add Now</button>
+                </a>
+            {% endif %}
+
+            {% if service=="receiver" %}
+                <a href="/menu/menu.html" style="text-decoration: none; color: white; margin-right: 20px;">
+                    <button class="submit-btn" style="margin-top: 20px;">Order Now</button>
+                </a>
+            {% endif %}
+
+            {% if service=="provider" %}
+                <a href="/provider" style="text-decoration: none; color: white;">
+                    <button class="submit-btn" style="margin-top: 20px;">Add Now</button>
+                </a>
+            {% endif %}
+
+        </div>
+    </section>
+
+    <!-- <img src="vegetables.png" alt="Photos" id="vegetable"> -->
+
+    <!-- Products Section -->
+    <section class="products">
+        <h2 class="section-title">Our Bestsellers</h2>
+        <div class="product-grid">
+            <div class="product-card">
+                <img src="static/images/grace.png" alt="Grace Caterers" class="product-image">
+    
+            </div>
+            <div class="product-card">
+                <img src="static/images/fusion.png" alt="Fusion Caterers" class="product-image">
+                
+            </div>
+            <div class="product-card" style="display: flex; align-items: center; justify-content: center;">
+                <img src="static/images/proodle.png" alt="Proodle Caterers" class="product-image" 
+                style="width: 250px; height: auto;">   
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section class="reviews">
+        <h2 class="section-title">Customer Reviews</h2>
+        <div class="review-slider">
+            <div class="review-card">
+                <div class="stars">★★★★★</div>
+                <p>"Best utilisation of extra food by giving them to one who needs them!"</p>
+                <h4>- Ravi Kumar, The Mumbai helpers</h4>
+            </div>
+            <div class="review-card">
+                <div class="stars">★★★★★</div>
+                <p>"Good, tasty and clean food!"</p>
+                <h4>- Mohini Singh, Punjab shelters</h4>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <h2 class="section-title">Why Choose Us</h2>
+        <div class="feature-grid">
+            <div class="feature-card">
+                <i class="fas fa-coffee feature-icon"></i>
+                <h3>Quality and Fresh Food</h3>
+                <p>Sourced from healthy and tasty food ingridients</p>
+            </div>
+            <div class="feature-card">
+                <i class="fa-solid fa-dollar-sign custom-icon"></i>
+                <br>
+                <br>
+                <h3>Free Of Cost</h3>
+                <p>Enjoying the food for free</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-clock feature-icon"></i>
+                <h3>Quick Service</h3>
+                <p>Your order delivered in minutes</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <h2 class="section-title">Contact Us</h2>
+        <div class="contact-form">
+            <div class="form-group">
+                <input type="text" placeholder="Your Name">
+            </div>
+            <div class="form-group">
+                <input type="email" placeholder="Your Email">
+            </div>
+            <div class="form-group">
+                <textarea placeholder="Your Message" rows="5"></textarea>
+            </div>
+            <button class="submit-btn">Send Message</button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-grid">
+            <div>
+                <h3>About Us</h3>
+                <p>Your perfect spot for great community service by providing food.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+            <div>
+                <h3>Quick Links</h3>
+                <p><a href="#">Menu</a></p>
+                <p><a href="#">Locations</a></p>
+                <p><a href="#">Careers</a></p>
+            </div>
+            <div>
+                <h3>Contact</h3>
+                <p>VIT Chennai, <br>Vandalur-Kelambakkam road, 600127</p>
+                <a href="mailto:sumitkumar.patnaik2023@vitstudent.ac.in">
+                    sumitkumar.patnaik2023@vitstudent.ac.in
+                </a>
+                <p>+91 8109101249</p>
+            </div>
+        </div>
+        <div style="text-align: center; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1);">
+            <p>&copy; 2025 Feed Forward. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
