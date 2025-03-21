@@ -10,22 +10,22 @@
 <body>  
 
     <!-- Navbar -->
-<nav class="navbar">
-    <div class="logo">
-        <img src="static/images/logo.png" alt="Feed Forward Logo">
-        <span>Feed Forward</span>
-    </div>
-    <div class="nav-links">
-        <a href="/">Home</a>
-        <a href="/about">About</a>
-        <a href="/#contact">Contact</a>
-        {% if auth %}
-            <a href="#">Profile</a>
-        {% else %}
-            <a href="login">Login</a>
-        {% endif %}
-    </div>
-</nav>
+    <nav class="navbar">
+        <div class="logo">
+            <img src="static/images/logo.png" alt="Feed Forward Logo">
+            <span>Feed Forward</span>
+        </div>
+        <div class="nav-links">
+            <a href="/">Home</a>
+            <a href="/about">About</a>
+            <a href="/#contact">Contact</a>
+            {% if auth %}
+                <a href="/logout">Logout</a>
+            {% else %}
+                <a href="/login">Login</a>
+            {% endif %}
+        </div>
+    </nav>
 
 
     <!-- Hero Section -->

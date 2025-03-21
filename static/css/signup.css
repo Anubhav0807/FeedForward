@@ -45,6 +45,12 @@ select {
     cursor: pointer;
 }
 
+.error {
+    font-size: 0.8em;
+    color: red;
+    padding-left: 10px;
+}
+
 .signup-container {
     background: rgba(255, 255, 255, 0.95);
     opacity: 0.8;

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Receiver</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            
+        }
+        body {
+            min-height: 100vh;
+            background-image: url('/static/images/foodbg.jpg');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+            position: relative;
+            overflow: auto;
+        }
+
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: inherit;
+            background-size: inherit;
+            background-position: inherit;
+            background-attachment: inherit;
+            filter: blur(10px);
+            z-index: -1;
+        }
+
+        header {
+            position: fixed;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 2vh 5%;
+            background-color: rgba(255, 255, 255, 0.1);
+            opacity: 0.95;
+            color: white;
+            top: 0px;
+            z-index: 1000;
+        }
+        
+        .header-left {
+            display: flex;
+            align-items: center;
+        }
+        .logo {
+            height: 50px;
+            margin-right: 10px;
+        }
+        .logo img {
+            height: 40px;
+            object-fit: contain;
+        }
+        .logo-text {
+            font-size: 1.5rem;
+        }
+        nav {
+            display: flex;
+            gap: 20px;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 1rem;
+        }
+        a:hover {
+            color: black;
+        }
+        .slogan {
+            font-size: 0.72rem; 
+            margin-left: 8px;
+            
+        }
+        .hero {
+            margin-top: 80px; /* Adjusted to prevent content from going behind header */
+            text-align: center;
+            font-size: 1.5rem;
+            padding: 20px;
+            color: white;
+        }
+        .hero{
+            display: flex;
+            align-items:center ;
+            justify-content: center;
+        }
+        .container{
+            display: flex;
+            align-items:center ;
+            justify-content: center;
+            margin-bottom: 5vh;
+        }
+        .box{
+            height: 30vh;
+            width: 80vh;
+            background-color: white;
+            display: flex;
+            align-items:center ;
+            justify-content: space-around;
+            border-radius: 20px;
+            opacity: 0.7;
+        }
+        #photo{
+            height: 17vh;
+            width: 19vh;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-left">
+            <img src="/static/images/logo.png" alt="Logo" class="logo">
+            <div class="logo-slo">
+                <div class="logo-text">Feed Forward</div>
+                <div class="slogan">From surplus to service</div>
+            </div>
+        </div>
+        <nav>
+            <a href="/">Home</a>
+            <a href="/about">About Us</a>
+            <a href="/#contact">Contact</a>
+        </nav>
+    </header>
+    <main>
+        <div class="hero">
+            <p>Every Meal Shared is a Life Cared! 🍲💚</p>
+        </div>
+
+        {% for row, img_url in zipped_data %}
+            <div class="container">
+                <div class="box">
+                    <div class="food-image">
+                        <img src="{{img_url}}" alt="food photo" id="photo">
+                    </div>
+                    <div class="details">
+                        <ul>
+                            {% for val in row[0:-1] %}
+                                <li>{{ val }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>                
+                </div>
+            </div>
+        {% endfor %}
+    </main>
+</body>
+</html>

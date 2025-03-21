@@ -16,12 +16,15 @@
         </div>
         <div class="nav-links">
             <a href="/">Home</a>
+            {% if service=="receiver" %}
+                <a href="/subscribe">Subscription</a>
+            {% endif %}
             <a href="/about">About</a>
-            <a href="#contact">Contact</a>
+            <a href="/#contact">Contact</a>
             {% if auth %}
-                <a href="#">Profile</a>
+                <a href="/logout">Logout</a>
             {% else %}
-                <a href="login">Login</a>
+                <a href="/login">Login</a>
             {% endif %}
         </div>
     </nav>
@@ -42,7 +45,7 @@
             {% endif %}
 
             {% if service=="receiver" %}
-                <a href="/menu/menu.html" style="text-decoration: none; color: white; margin-right: 20px;">
+                <a href="/receiver" style="text-decoration: none; color: white; margin-right: 20px;">
                     <button class="submit-btn" style="margin-top: 20px;">Order Now</button>
                 </a>
             {% endif %}

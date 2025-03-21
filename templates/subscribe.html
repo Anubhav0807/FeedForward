@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subscription</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color: rgba(0, 0, 0, 0.8);
+        }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(45deg, greenyellow, pink);
+            overflow-x: hidden;
+        }
+
+        .navbar {
+            background: rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(10px);
+            padding: 15px 5%;
+            
+            width: 100%;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .window-scrolled .navbar {
+            background: rgba(255, 255, 255, 0.5);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        .logo img {
+            width: 60px;
+            height: auto;
+            border-radius: 5px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 500;
+            transition: 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #8b4513;
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                gap: 10px;
+                padding: 10px;
+            }
+            
+            .nav-links {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .logo img {
+                width: 35px;
+            }
+        }
+
+
+        footer {
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            padding: 50px 5% 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-links a {
+            font-size: 20px;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: #8b4513;
+        }
+        .hero{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            margin: 20px;
+        }
+        
+        .major{
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+       
+        .register-button {
+            background: linear-gradient(to right, #00ADB5, #00FFFF);
+            color: #111;
+            padding: 12px 24px;
+            font-size: 1.1em;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            border-radius: 5px;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+            transition: transform 0.2s ease, box-shadow 0.2s ease, background-position 0.3s ease;
+            background-size: 200% auto;
+            margin-top: 2vh;
+        }
+
+        .register-button:hover {
+            transform: scale(1.05);
+            box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.3);
+            background-position: -100% 0;
+        }
+
+        .register-button::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.3) 50%, rgba(255, 255, 255, 0) 100%);
+            transition: left 0.7s ease;
+            z-index: 1;
+        }
+
+        .register-button:hover::before {
+            left: 100%;
+        }
+
+        .register-button::after,
+        .register-button::before { 
+            content: "";
+            position: absolute;
+            background-color: rgba(0, 255, 255, 0.5);
+            height: 100%;
+            width: 20px;
+            clip-path: polygon(0% 0%, 100% 50%, 0% 100%);
+            z-index: -1;
+            transition: transform 0.3s ease;
+        }
+
+        .register-button::before {
+            left: -10px;
+            transform: translateX(-5px) skewY(15deg);
+        }
+
+        .register-button::after {
+            right: -10px;
+            transform: translateX(5px) rotate(180deg) skewY(15deg);
+        }
+
+        .register-button:hover::before {
+            transform: translateX(-20px) skewY(0deg);
+        }
+
+        .register-button:hover::after { 
+            transform: translateX(20px) rotate(180deg) skewY(0deg);
+        }
+        /*flip box*/
+        .flip-container {
+            perspective: 1000px;
+            width: 50vh;
+            height: 50vh;
+        }
+
+        .flip-box {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 0.6s;
+        }
+
+        .flipped {
+            transform: rotateY(180deg);
+        }
+
+        .flip-box-front, .flip-box-back {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            backface-visibility: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            flex-direction: column;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .flip-box-front {
+            background: linear-gradient(45deg, pink, greenyellow);
+        }
+
+        .flip-box-back {
+            background: linear-gradient(45deg, greenyellow, pink);
+            transform: rotateY(180deg);
+            
+        }
+        .money{
+            height: 30vh;
+        }
+    </style>
+</head>
+<body>  
+
+    <header>
+        <nav class="navbar">
+        
+            <div class="logo">
+                <img src="static/images/logo.png" alt="Feed Forward Logo">
+                <span>Feed Forward</span>
+            </div>
+            <div class="nav-links">
+                <a href="/">Home</a>
+                <a href="/about">About</a>
+                <a href="/#contact">Contact</a>
+                {% if auth %}
+                    <a href="/logout">Logout</a>
+                {% else %}
+                    <a href="/login">Login</a>
+                {% endif %}
+            </div>
+        </nav>
+    </header>
+
+    
+    <main>
+        <div class="hero">
+            <div>
+                <H1>SUBSCRIPTION PLANS</H1>
+                <p>One click away from getting food under great prices</p>
+            </div>
+        </div>
+        <br>
+        <div class="major">
+            <div class="flip-container">
+                <div class="flip-box" id="flipBox1">
+                    <div class="flip-box-front">
+                        <h2>WEEKLY PLAN</h2>
+                        <p>At just Rs.300</p>
+                        <button class="register-button" onclick="flipCard('flipBox1')">BUY NOW</button>
+                    </div>
+                    <div class="flip-box-back">
+                        <img src="static/images/Rs300.jpg" alt="Qr code" class="money">
+                        <button class="register-button" onclick="flipCard('flipBox1')">Go Back</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="flip-container">
+                <div class="flip-box" id="flipBox2">
+                    <div class="flip-box-front">
+                        <h2>MONTHLY PLAN</h2>
+                        <p>At just Rs.1000</p>
+                        <button class="register-button" onclick="flipCard('flipBox2')">BUY NOW</button>
+                    </div>
+                    <div class="flip-box-back">
+                        <img src="static/images/Rs300.jpg" alt="Qr code" class="money">
+                        
+                        <button class="register-button" onclick="flipCard('flipBox2')">Go Back</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="flip-container">
+                <div class="flip-box" id="flipBox3">
+                    <div class="flip-box-front">
+                        <h2>YEARLY PLAN</h2>
+                        <p>At just Rs.10000</p>
+                        <button class="register-button" onclick="flipCard('flipBox3')">BUY NOW</button>
+                    </div>
+                    <div class="flip-box-back">
+                        <img src="static/images/Rs300.jpg" alt="Qr code" class="money">
+                        
+                        <button class="register-button" onclick="flipCard('flipBox3')">Go Back</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        
+    
+
+    </main>
+    <br>
+    <!-- Footer -->
+    <footer>
+        <div class="footer-grid" id="contact">
+            <div>
+                <h3>About Us</h3>
+                <p>Join us in rescuing food and feeding communities.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+            <div>
+                <h3>Quick Links</h3>
+                <p>Donate</p>
+                <p>Our Impact</p>
+                <p>Get Involved</p>
+            </div>
+            <div>
+                <h3>Contact</h3>
+                <p>VIT Chennai, <br>Vandalur-Kelambakkam road, 600127</p>
+                <a href="mailto:sumitkumar.patnaik2023@vitstudent.ac.in">
+                    sumitkumar.patnaik2023@vitstudent.ac.in
+                </a>
+                <p>+91 8109101249</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p style="text-align: center;">&copy; 2025 Feed Forward. All rights reserved.</p>
+        </div>
+    </footer>
+    <script>
+        function flipCard(id) {
+            document.getElementById(id).classList.toggle("flipped");
+        }
+    </script>
+</body>
+</html>

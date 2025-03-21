@@ -90,7 +90,7 @@
         .slogan{
             font-size: 0.72rem; margin-left: 8px;
         }
-        /* Main Content */
+        
         main {
             padding-top: 100px; /* Adjust for fixed header */
             text-align: center;
@@ -118,7 +118,7 @@
             font-size: 1rem;
         }
 
-        button {
+        input[type="submit"] {
             background-color: #ff9800;
             color: white;
             border: none;
@@ -126,7 +126,7 @@
             font-size: 1.1rem;
         }
 
-        button:hover {
+        input[type="submit"]:hover {
             background-color: #e68900;
         }
 
@@ -183,62 +183,40 @@
         <nav>
             <a href="/">Home</a>
             <a href="/about">About</a>
+            <a href="/#contact">Contact</a>
+            <a href="/logout">Logout</a>
         </nav>
     </header>
     
     <main>
         <section class="donate-food">
             <h2>Donate Leftover Food</h2>
-            <input type="text" id="foodName" placeholder="Food Name">
-            <input type="text" id="messName" placeholder="Caterer Name">
-            <input type="number" id="servings" placeholder="Number of Servings">
-            
-            <select id="food-type" name="food-type" required>
-                <option value="">Select Food Type</option>
-                <option value="fruits">Fruits & Vegetables</option>
-                <option value="dairy">Dairy Products</option>
-                <option value="baked">Baked Goods</option>
-                <option value="cooked">Cooked Meals</option>
-                <option value="canned">Canned & Packaged Goods</option>
-                <option value="meat">Meat & Seafood</option>
-                <option value="beverages">Beverages</option>
-                <option value="snacks">Snacks & Sweets</option>
-                <option value="baby">Baby Food & Formula</option>
-                <option value="other">Other</option>
-            </select>
+            <form method="POST" action="/provider" enctype="multipart/form-data">
+                <input type="text" id="foodName" placeholder="Food Name" name="food-name" required>
+                <input type="text" id="messName" placeholder="Caterer Name" name="mess-name" required>
+                <input type="number" id="servings" placeholder="Number of Servings" name="amount" required>
+                
+                <select id="food-type" name="food-type" required>
+                    <option value="">Select Food Type</option>
+                    <option value="fruits">Fruits & Vegetables</option>
+                    <option value="dairy">Dairy Products</option>
+                    <option value="baked">Baked Goods</option>
+                    <option value="cooked">Cooked Meals</option>
+                    <option value="canned">Canned & Packaged Goods</option>
+                    <option value="meat">Meat & Seafood</option>
+                    <option value="beverages">Beverages</option>
+                    <option value="snacks">Snacks & Sweets</option>
+                    <option value="baby">Baby Food & Formula</option>
+                    <option value="other">Other</option>
+                </select>
 
-            <input id="autocomplete" type="text" placeholder="Enter location">
-            <input type="file" id="foodImage" accept="image/*">
-            
-            <button onclick="addFood()">Add Food</button>
-            <p id="confirmationMessage" class="confirmation">Food added successfully!</p>
+                <input id="autocomplete" type="text" placeholder="Enter location" name="location" required>
+                <input type="file" id="foodImage" accept="image/*" name="food-image">
+                <input type="submit">
+                
+            </form>
         </section>
     </main>
-    
-    <script>
-        function addFood() {
-            let foodName = document.getElementById("foodName").value;
-            let messName = document.getElementById("messName").value;
-            let servings = document.getElementById("servings").value;
-            let foodImage = document.getElementById("foodImage").files[0];
-
-            if (foodName && messName && servings) {
-                let confirmationMsg = document.getElementById("confirmationMessage");
-                confirmationMsg.style.display = "block";
-
-                setTimeout(() => {
-                    confirmationMsg.style.display = "none";
-                }, 2000);
-
-                document.getElementById("foodName").value = "";
-                document.getElementById("messName").value = "";
-                document.getElementById("servings").value = "";
-                document.getElementById("foodImage").value = "";
-            } else {
-                alert("Please fill all fields");
-            }
-        }
-    </script>
 
 </body>
 </html>
